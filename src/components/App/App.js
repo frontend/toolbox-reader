@@ -16,6 +16,7 @@ import SingleFull from '../../views/Single/SingleFull';
 import SinglePage from '../../views/Single/SinglePage';
 import Doc from '../../views/Doc/Doc';
 import Colors from '../../views/Colors/Colors';
+import Icons from '../../views/Icons/Icons';
 
 import './App.css';
 
@@ -79,6 +80,7 @@ class App extends Component {
               <Route path="/organisms/:slug" component={SingleStyleguide} />
               <Route path="/doc/:slug" component={Doc} />
               <Route path="/colors" component={Colors} />
+              <Route path="/icons" component={Icons} />
             </div>
           </div>
         </Theme>
