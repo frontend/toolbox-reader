@@ -28,6 +28,9 @@ const Sidebar = (props) => {
         <li>
           <NavLink to={'/colors'}>Colors</NavLink>
         </li>
+        <li>
+          <NavLink to={'/icons'}>Icons</NavLink>
+        </li>
       </ul>
 
       <SidebarDocs location={props.location} />
