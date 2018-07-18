@@ -1,5 +1,31 @@
 # Changelog
 
+*2.1.2* (2018-06-19)
+  - ✨ get sourcesOrder and use it (957856c)
+
+*2.1.1* (2018-06-15)
+  - Fix component meta call
+
+*2.1.0* (2018-06-15)
+
+  - 💄 fix IE grid (26a3650) 
+  - 💄 safer CSS (4c688bf) 
+  - ⚡️ get pre-built components meta if exists (cf6272c) 
+  - ✨ dynamic twig namespaces (71cf0e2) 
+  - 🐛 fix dynamic routes (c305ae5) 
+  - ✨ move to Immer reducers (926bbd7) 
+  - ✨ dynamic component types routes (5bbb105) 
+  - ✨ add update alert (7af5661)
+
+*2.0.11* (2018-05-07)
+  - 🐛 fix empty yml import (453ac27)
+
+*2.0.10* (2018-05-07)
+  - 🐛 lint and fix infinite doc loop (6a6620c)
+
+*2.0.9* (2018-04-05)
+  - 📦 fix component wrapping class pattern (cdbef50)
+
 *2.0.8* (2018-03-13)
   - ✨ add loader for long rendering feedback (4c60217)
 

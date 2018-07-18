@@ -14,6 +14,7 @@ class Doc extends Component {
 
     this.state = {
       homeFile: '',
+      hasFetched: false,
     };
   }
 
@@ -22,6 +23,7 @@ class Doc extends Component {
   }
 
   componentWillReceiveProps(nextProps) {
+    this.setState({ hasFetched: false });
     this.getContent(nextProps);
   }
 
@@ -30,11 +32,17 @@ class Doc extends Component {
   }
 
   getContent(props) {
-    const homeFile = props.docs.docs_list.f && props.docs.docs_list.f.includes('index.md') ? 'index.md' : 'index.html';
-    const slug = props.match.params.slug || homeFile;
+    if (!this.state.hasFetched) {
+      const homeFile =
+        props.docs.docs_list.f && props.docs.docs_list.f.includes('index.md')
+          ? 'index.md'
+          : 'index.html';
+      const slug = props.match.params.slug || homeFile;
 
-    this.setState({ homeFile });
-    props.getDocContent(slug, props.navigation.base_url);
+      this.setState({ homeFile });
+      props.getDocContent(slug, props.navigation.base_url);
+      this.setState({ hasFetched: true });
+    }
   }
 
   render() {
@@ -42,12 +50,11 @@ class Doc extends Component {
 
     return (
       <div>
-        {currentDoc.format === 'md'
-        ?
+        {currentDoc.format === 'md' ? (
           <ReactMarkdown source={currentDoc.content || this.state.default} />
-        :
+        ) : (
           <div dangerouslySetInnerHTML={{ __html: currentDoc.content }} />
-        }
+        )}
       </div>
     );
   }
@@ -66,10 +73,16 @@ function mapState(state) {
 }
 
 function mapDispatch(dispatch) {
-  return bindActionCreators({
-    getDocContent,
-    cleanDocContent,
-  }, dispatch);
+  return bindActionCreators(
+    {
+      getDocContent,
+      cleanDocContent,
+    },
+    dispatch,
+  );
 }
 
-export default connect(mapState, mapDispatch)(Doc);
+export default connect(
+  mapState,
+  mapDispatch,
+)(Doc);
