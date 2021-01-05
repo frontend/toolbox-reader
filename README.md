@@ -1,5 +1,7 @@
 # Toolbox Reader 👓
 
+## ⚠️ Deprecated in favor of [**Storybox**](https://github.com/frontend/storybox) ⚠️
+
 ## Install and run
 
 Make sure you have the `/public` directory correctly set up before you start working on Toolbox Reader. Our recommendation is to start off another styleguide. When you're done, just run (replace `base-styleguide` by your base styleguide path:
